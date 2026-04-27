@@ -1,4 +1,3 @@
-
 # Harsh Bediya — Personal Portfolio
 
 A personal portfolio website built with HTML, CSS, and JavaScript. Designed to showcase my projects, skills, and background as a final-year B.Tech Computer Science student seeking entry-level roles in software development.
@@ -15,15 +14,15 @@ A full-stack travel community web application.
 - **Backend:** Django + Django REST Framework — deployed on Render
 - **Database:** PostgreSQL (Neon)
 - **Features:** JWT authentication, Cloudinary image uploads, WebSocket support via Django Channels
-- 🔗 Live: `[add link]` · GitHub: `[add link]`
+- 🔗 [Live Demo](https://travel-community-inky.vercel.app/) · [GitHub](https://github.com/Harshbediya/Travel-community)
 
 ### Hospital Management System
-Django REST + React.js based system for managing doctor profiles, patient appointments, and admin operations.
-- 🔗 GitHub: `[add link]`
+Django REST + React. js-based system for managing doctor profiles, patient appointments, and admin operations.
+- 🔗 GitHub: `[https://neet-mentor.vercel.app/]`
 
 ### Freelancing Marketplace
 React-based platform for student freelance job listings with an admin dashboard and application tracking.
-- 🔗 GitHub: `[add link]`
+- 🔗 GitHub: `[https://github.com/Harshbediya]`
 
 ---
 
