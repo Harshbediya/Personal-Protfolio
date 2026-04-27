@@ -2,175 +2,1140 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harsh Bediya | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Bediya | Full Stack Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Harsh Bediya, a Full Stack Developer specializing in Python, Django, and React. View my projects, certifications, and skills." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #111111;
+      --bg-secondary: #1a1a1a;
+      --text: #ffffff;
+      --text-muted: #888888;
+      --text-dark: #222222;
+      --orange: #f46c38;
+      --green: #c5ff41;
+      --card-radius: 24px;
+    }
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- AOS Animations -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    /* NAVBAR */
+    nav {
+      position: absolute;
+      top: 24px;
+      background: rgba(30, 30, 30, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: flex;
+      gap: 24px;
+      z-index: 100;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-icon {
+      color: var(--text-muted);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-icon:hover {
+      color: var(--text);
+    }
+
+    /* MAIN LAYOUT */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 140px auto 40px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    /* SIDEBAR (LEFT) */
+    .sidebar {
+      background: #ffffff;
+      color: #000000;
+      border-radius: var(--card-radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: sticky;
+      top: 24px;
+    }
+
+    .profile-img-container {
+      width: 100%;
+      height: 340px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f46c38, #d84510);
+      margin-bottom: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 80px;
+      position: relative;
+    }
+
+    /* Abstract dashed circle decoration like in the screenshot */
+    .profile-img-container::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 150px;
+      height: 150px;
+      border: 2px dashed rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .fire-icon {
+      background: var(--orange);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .bio {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .social-link {
+      color: var(--orange);
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-link:hover {
+      opacity: 0.7;
+    }
+
+    .social-link svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.5;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* RESUME CTA BANNER */
+    .resume-cta-box {
+      margin-top: 100px;
+      background: #151515;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .resume-cta-text h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .resume-cta-text p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    .resume-btn-large {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--orange);
+      color: #fff;
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(220, 85, 30, 0.25);
+      white-space: nowrap;
+    }
+
+    .resume-btn-large:hover {
+      background: #e65c22;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(220, 85, 30, 0.4);
+    }
+
+    /* CONTENT (RIGHT) */
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .huge-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 84px;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+    }
+
+    .huge-title .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .huge-title .outline {
+      color: var(--text-dark);
+    }
+
+    .content-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 60px;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      max-width: 100px;
+      line-height: 1.4;
+    }
+
+    /* CARDS ROW */
+    .cards-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .color-card {
+      border-radius: var(--card-radius);
+      padding: 32px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      color: #000;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .card-orange {
+      background-color: var(--orange);
+      color: #fff;
+    }
+
+    .card-green {
+      background-color: var(--green);
+    }
+
+    .card-icon {
+      margin-bottom: 40px;
+    }
+
+    .card-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .card-arrow {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .card-orange .card-arrow {
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .color-card:hover .card-arrow {
+      transform: scale(1.1);
+    }
+
+    /* PROJECTS SECTION */
+    .recent-projects-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 84px;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 40px;
+    }
+
+    .recent-projects-title .outline {
+      color: var(--text-dark);
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-item {
+      background: var(--bg-secondary);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid transparent;
+    }
+
+    .project-item:hover {
+      background: #222;
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-img {
+      width: 280px;
+      height: 180px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top center;
+      background: #333;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .proj-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .proj-desc {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    .proj-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .proj-tag {
+      background: #111;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: #aaa;
+      border: 1px solid #333;
+    }
+
+    .proj-arrow {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      color: var(--orange);
+      transition: transform 0.2s;
+    }
+
+    .project-item:hover .proj-arrow {
+      transform: translate(5px, -5px);
+    }
+
+    @media (max-width: 768px) {
+      .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .project-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+      }
+
+      .recent-projects-title {
+        font-size: 48px;
+      }
+    }
+
+    /* CERTIFICATIONS SECTION */
+    .certs-section {
+      margin-top: 100px;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline-list::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      left: 6px;
+      width: 2px;
+      background: var(--orange);
+      opacity: 0.5;
+    }
+
+    .timeline-list .project-item {
+      position: relative;
+    }
+
+    .timeline-list .project-item::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -31px;
+      width: 12px;
+      height: 12px;
+      background: var(--orange);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 0 6px var(--bg);
+      z-index: 2;
+    }
+
+    .cert-img-fit {
+      object-fit: contain !important;
+      background: #111 !important;
+      padding: 12px;
+    }
+
+    /* TOOLS SECTION */
+    .tools-section {
+      margin-top: 100px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px;
+      border-radius: var(--card-radius);
+      transition: background 0.2s;
+    }
+
+    .tool-item:hover {
+      background: var(--bg-secondary);
+    }
+
+    .tool-icon {
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tool-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .tool-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .tool-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      margin-top: 100px;
+      margin-bottom: 60px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .form-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      background: #1c1c1c;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 16px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      width: 100%;
+      outline: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      background: #252525;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 16px;
+    }
+
+    .submit-btn {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 18px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .huge-title {
+        font-size: 64px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .huge-title {
+        font-size: 48px;
+      }
+
+      .stats {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-list {
+        padding-left: 0;
+      }
+
+      .timeline-list::before,
+      .timeline-list .project-item::before {
+        display: none;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .resume-cta-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- PARTICLES BG -->
-    <div id="particles-js"></div>
+  <!-- Minimal Nav Icons -->
+  <nav>
+    <a href="#home" title="Home">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <a href="#projects" title="Projects">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </a>
+    <a href="#skills" title="Tech Skills">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    </a>
+    <a href="#contact" title="Contact">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </a>
+  </nav>
 
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar" data-aos="fade-down">
-            <div class="logo">Portfolio</div>
+  <div class="container" id="home">
 
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-img-container">
+        <img src="image/dp%20image.jpg" alt="Harsh Bediya"
+          style="width: 100%; height: 100%; object-fit: cover; object-position: bottom center; position: relative; z-index: 1; mix-blend-mode: multiply; opacity: 0.9;" />
+      </div>
+      <h2 class="name">Harsh Bediya</h2>
+      <div class="fire-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2c0 0-4 4-4 9a4 4 0 0 0 8 0c0-5-4-9-4-9z" />
+          <path d="M12 22a8 8 0 0 1-8-8c0-4.4 3.6-8 8-8s8 3.6 8 8a8 8 0 0 1-8 8z" />
+        </svg>
+      </div>
+      <p class="bio">
+        A Full Stack Developer who has developed countless innovative solutions for the web.
+      </p>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- HERO / FRONT PAGE -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="zoom-in">
-
-            <h1 class="big-title">
-                Hi, I'm <span class="glow">Harsh Bediya</span>
-            </h1>
-
-            <h2 class="typewriter"></h2>
-
-            <p class="hero-sub">
-                Full Stack Web Developer • React.js • Django • Python  
-            </p>
-
-            <a href="#projects" class="btn glass-btn" data-aos="fade-up">Explore My Work →</a>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills">
-        <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-
-        <div class="skills-grid">
-            <div class="skill-box tilt">HTML</div>
-            <div class="skill-box tilt">CSS</div>
-            <div class="skill-box tilt">JavaScript</div>
-            <div class="skill-box tilt">React.js</div>
-            <div class="skill-box tilt">Python</div>
-            <div class="skill-box tilt">Django</div>
-            <div class="skill-box tilt">REST APIs</div>
-            <div class="skill-box tilt">C++</div>
-            <div class="skill-box tilt">MySQL</div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="projects">
-        <h2 class="section-title" data-aos="fade-up">Projects</h2>
-
-        <div class="project-card tilt" data-aos="fade-right">
-            <h3>Hospital Management System</h3>
-            <p>Django REST + React.js based system.</p>
-            <p>Doctor profiles, appointments & admin panel.</p>
-        </div>
-
-        <div class="project-card tilt" data-aos="fade-left">
-            <h3>Freelancing Marketplace</h3>
-            <p>React based student freelance job platform.</p>
-            <p>Admin dashboard + application tracking.</p>
-        </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="certificates">
-        <h2 class="section-title" data-aos="fade-up">Certificates</h2>
-
-        <div class="certificate-grid">
-
-            <!-- GirlScript -->
-            <div class="certificate-card tilt" data-aos="zoom-in">
-                <a href="image/Harsh_Bediya__certificate.png" target="_blank">
-                    <img src="image/Harsh_Bediya__certificate.png">
-                </a>
-                <h4>GirlScript Summer of Code 2025</h4>
-            </div>
-
-            <!-- AI HP -->
-            <div class="certificate-card tilt" data-aos="zoom-in">
-                <a href="image/Harsh_Bediya_Ai.jpg" target="_blank">
-                    <img src="image/Harsh_Bediya_Ai.jpg">
-                </a>
-                <h4>AI Immersion Week – CII HP</h4>
-            </div>
-
-            <!-- Cybrom Training FIXED -->
-            <div class="certificate-card tilt" data-aos="zoom-in">
-                <a href="image/Harsh Bediya Training CertificateFSD.png" target="_blank">
-                    <img src="image/Harsh Bediya Training CertificateFSD.png">
-                </a>
-                <h4>Python Full Stack Training – Cybrom</h4>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- RESUME -->
-    <section id="resume" class="resume">
-        <h2 class="section-title" data-aos="fade-up">Resume</h2>
-        <a href="image/Harsh_Bediya_Resume.pdf" class="btn glass-btn" download data-aos="zoom-in">
-            Download Resume
+      <!-- Socials mapping to Dribbble/Twitter/Instagram/Youtube icons from screenshot -->
+      <div class="social-links">
+        <a href="https://github.com/Harshbediya" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
         </a>
-    </section>
+        <a href="https://www.linkedin.com/in/harsh-bediya-a1330426a" target="_blank" class="social-link">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="mailto:harshbedi3112@gmail.com" class="social-link">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </aside>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+    <!-- RIGHT CONTENT -->
+    <main class="content">
 
-        <p>Email: <strong>harshbedi3112@gmail.com</strong></p>
-        <p>Phone: <strong>+91 62632 19320</strong></p>
+      <div class="huge-title">
+        <span class="gradient-text">FULL STACK</span><br />
+        <span class="outline">DEVELOPER</span>
+      </div>
 
-        <p>LinkedIn:
-            <strong>
-                <a href="https://www.linkedin.com/in/harsh-bediya-a1330426a" target="_blank">
-                    linkedin.com/in/harsh-bediya-a1330426a
-                </a>
-            </strong>
-        </p>
+      <p class="content-desc">
+        Full Stack Developer specializing in Python, Django, and React. Passionate about building scalable,
+        high-performance web applications and transforming ideas into beautifully crafted products. Final-year CS
+        student graduating in 2026.
+      </p>
 
-        <p>GitHub:
-            <strong>
-                <a href="https://github.com/Harshbediya" target="_blank">
-                    github.com/Harshbediya
-                </a>
-            </strong>
-        </p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">+3</div>
+          <div class="stat-label">Deployed Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">+4</div>
+          <div class="stat-label">IT Certifications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">88%</div>
+          <div class="stat-label">Python / Django</div>
+        </div>
+      </div>
 
-    </section>
+      <div class="cards-row">
+        <!-- Orange Card -->
+        <div class="color-card card-orange">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div>PYTHON, DJANGO,<br />REST APIS</div>
+          <div class="card-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
 
-    <footer>
-        <p>© 2025 Harsh Bediya | All Rights Reserved</p>
-    </footer>
+        <!-- Green Card -->
+        <div class="color-card card-green">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <div>REACT.JS, VITE,<br />POSTGRESQL</div>
+          <div class="card-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
 
-    <!-- JS FILES -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <!-- Additional Projects Content -->
+      <div class="recent-projects-title" id="projects">
+        RECENT<br />
+        <span class="outline">PROJECTS</span>
+      </div>
+      <div class="project-list">
 
-    <script src="script.js"></script>
+        <a href="https://github.com/Harshbediya" target="_blank" class="project-item">
+          <img src="image/Project%20Image/Screenshot%202026-04-27%20013520.png" alt="Travelworld"
+            class="project-img cert-img-fit" />
+          <div class="project-info">
+            <h4 class="proj-title">Travelworld</h4>
+            <p class="proj-desc">Full-stack travel community platform. Users post trips, discover places, chat in real
+              time via WebSockets.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Django</span>
+              <span class="proj-tag">PostgreSQL</span>
+              <span class="proj-tag">WebSockets</span>
+            </div>
+          </div>
+          <div class="proj-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+
+        <a href="https://neet-mentor.vercel.app/" target="_blank" class="project-item">
+          <img src="image/Project%20Image/Screenshot%202026-04-27%20013613.png" alt="NEET AI Mentor"
+            class="project-img cert-img-fit" />
+          <div class="project-info">
+            <h4 class="proj-title">NEET AI Mentor</h4>
+            <p class="proj-desc">AI-powered study dashboard and mentor for NEET aspirants, helping them track progress
+              and get personalized guidance.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Tailwind</span>
+              <span class="proj-tag">AI/LLM</span>
+            </div>
+          </div>
+          <div class="proj-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+
+        <a href="https://careernavigatorforstudents.netlify.app/" target="_blank" class="project-item">
+          <img src="image/Project%20Image/Career.png" alt="Career Navigator" class="project-img cert-img-fit" />
+          <div class="project-info">
+            <h4 class="proj-title">Career Navigator</h4>
+            <p class="proj-desc">Comprehensive platform helping students explore and navigate career paths with
+              personalized recommendations.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Frontend</span>
+              <span class="proj-tag">UI/UX</span>
+            </div>
+          </div>
+          <div class="proj-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+
+        <a href="https://github.com/Harshbediya" target="_blank" class="project-item">
+          <img src="image/Project%20Image/hospital_image.png" alt="Hospital Management System"
+            class="project-img cert-img-fit" />
+          <div class="project-info">
+            <h4 class="proj-title">Hospital Management System</h4>
+            <p class="proj-desc">Complete medical dashboard. Doctor profiles, patient appointments, and an admin panel.
+              Role-based access with Django REST API + React frontend.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Django</span>
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">REST API</span>
+            </div>
+          </div>
+          <div class="proj-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Certifications Section -->
+      <div class="certs-section" id="certifications">
+        <div class="recent-projects-title">
+          MY<br />
+          <span class="outline">CERTIFICATIONS</span>
+        </div>
+        <div class="timeline-list">
+          <a href="image/Harsh_Bediya_Ai.jpg" target="_blank" class="project-item">
+            <img src="image/Harsh_Bediya_Ai.jpg" class="project-img cert-img-fit" alt="AI Innovation Week" />
+            <div class="project-info">
+              <h4 class="proj-title">AI Innovation Week</h4>
+              <p class="proj-desc">Completed participation in AI Innovation Week organized by upGrad.</p>
+            </div>
+            <div class="proj-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+
+          <a href="image/Harsh_Bediya__certificate.png" target="_blank" class="project-item">
+            <img src="image/Harsh_Bediya__certificate.png" class="project-img cert-img-fit" alt="Summer of Code" />
+            <div class="project-info">
+              <h4 class="proj-title">Summer of Code</h4>
+              <p class="proj-desc">Recognized for exceptionally well performance during the Summer of Code contributor
+                program.</p>
+            </div>
+            <div class="proj-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+
+          <a href="image/Harsh%20Bediya%20Training%20CertificateFSD.png" target="_blank" class="project-item">
+            <img src="image/Harsh%20Bediya%20Training%20CertificateFSD.png" class="project-img cert-img-fit"
+              alt="Python FSD" />
+            <div class="project-info">
+              <h4 class="proj-title">Python Full Stack</h4>
+              <p class="proj-desc">Successfully completed 6 months training on Python Full Stack Web Development from
+                Cybrom.</p>
+            </div>
+            <div class="proj-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Resume CTA Box -->
+      <div class="resume-cta-box" id="resume">
+        <div class="resume-cta-text">
+          <h3>Looking for more details?</h3>
+          <p>Get a comprehensive overview of my experience, skills, and academic background.</p>
+        </div>
+        <a href="image/Harsh_Bediya_Resume%20(4).pdf" target="_blank" class="resume-btn-large" download>
+          Download Resume
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Tech Skills Section -->
+      <div class="tools-section" id="skills">
+        <div class="recent-projects-title">
+          TECH<br />
+          <span class="outline">SKILLS</span>
+        </div>
+
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- Python icon -->
+              <svg viewBox="0 0 24 24" fill="#306998">
+                <path
+                  d="M12.003 1.996a9.98 9.98 0 0 0-4.707 1.157c-2.485 1.34-3.565 3.322-3.565 5.922v1.543h8.318v1.173H5.068c-2.776 0-5.064 2.227-5.064 4.975s2.288 4.976 5.064 4.976h1.54v-3.41c0-1.84 1.54-3.413 3.413-3.413h5.05v-2.074c0-3.32-2.71-6.046-6.046-6.046h-2.18c0-1.27.91-2.4 2.128-2.61a7.846 7.846 0 0 1 3.03-.04c1.21.19 2.12.19 2.12 1.45v2.18H18.93c2.776 0 5.065-2.227 5.065-4.975s-2.29-4.976-5.065-4.976h-1.54v3.41c0 1.84-1.54 3.413-3.412 3.413H8.927v2.074c0 3.32 2.71 6.046 6.046 6.046h2.18c0 1.27-.91 2.4-2.128 2.61a7.846 7.846 0 0 1-3.03.04c-1.21-.19-2.12-.19-2.12-1.45V18.89H5.07c-3.834 0-6.942-3.107-6.942-6.942 0-3.834 3.108-6.942 6.942-6.942h3.136V1.996z" />
+              </svg>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">Python</div>
+              <div class="tool-desc">Backend Language</div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- React icon -->
+              <svg viewBox="0 0 24 24" fill="#61DAFB">
+                <path
+                  d="M12 21c-5.264 0-9.76-2.5-11.455-6.05C1.96 11.956 5.23 8.35 12 8.35c6.768 0 10.04 3.606 11.455 6.6C21.76 18.5 17.264 21 12 21Zm0-12c-6.19 0-9.155 3.34-10.424 6.05C3.012 18.106 7.155 20.35 12 20.35c4.845 0 8.988-2.244 10.424-5.3C21.155 12.34 18.19 9 12 9ZM12 16.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM12 16.5c-4.97 0-9-1.343-9-3s4.03-3 9-3 9 1.343 9 3-4.03 3-9 3Z" />
+              </svg>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">React.js</div>
+              <div class="tool-desc">Frontend Framework</div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- JS icon -->
+              <svg viewBox="0 0 24 24" fill="#F7DF1E">
+                <path
+                  d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.463.695-.712 1.258-.712.981 0 1.636.565 1.956 1.472l2.678-1.595c-.684-1.63-2.186-2.73-4.634-2.73-2.75 0-5.114 1.432-5.114 4.195 0 2.455 1.69 3.535 3.864 4.316 1.246.435 1.704.75 1.704 1.442 0 .524-.436.96-1.405.96-1.406 0-2.34-.84-2.75-2.062l-2.825 1.53c.895 2.215 2.805 3.425 5.56 3.425 3.23 0 5.17-1.56 5.17-4.32-.016-.62-.2-1.22-.616-1.2zM8.333 13.92H5.163v6.33c0 2.502-1.524 3.75-4.22 3.75v-2.898c1.378 0 1.614-.52 1.614-1.66V9.92h5.776v4z" />
+              </svg>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">JavaScript</div>
+              <div class="tool-desc">Programming Language</div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- Django icon (Text DJ) -->
+              <div style="font-family:'Poppins', sans-serif; font-weight:800; font-size: 24px; color: #092e20;">dj</div>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">Django</div>
+              <div class="tool-desc">Web Framework</div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- Postgres icon (Text DB) -->
+              <div style="font-family:'Poppins', sans-serif; font-weight:800; font-size: 24px; color: #336791;">db</div>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">PostgreSQL</div>
+              <div class="tool-desc">Database</div>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-icon">
+              <!-- Vite icon -->
+              <svg viewBox="0 0 24 24" fill="#646CFF">
+                <path d="M12 2L2 7l10 15 10-15L12 2zM12 19L5 7.5l7 1.5 7-1.5L12 19z" />
+              </svg>
+            </div>
+            <div class="tool-info">
+              <div class="tool-name">Vite</div>
+              <div class="tool-desc">Build Tool</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-section" id="contact">
+        <div class="recent-projects-title">
+          LET'S WORK<br />
+          <span class="outline">TOGETHER</span>
+        </div>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="Your@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Budget</label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="1000-5000">$1,000 - $5,000</option>
+              <option value="5000-10000">$5,000 - $10,000</option>
+              <option value="10000+">$10,000+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Message" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+
+    </main>
+  </div>
 
 </body>
 
